@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Console Doc</title>
+</head>
+<body>
+<div>
+	<h1>Anis Console </h1>
+	<h3>Getting started</h3>
+	<p>the console library allows you to create amazing console based apps. it is a project in progress hence feel free to contribute. It is fully open source.The motivation is to build a simple console class without any external dependencies.</p>
+
+	<p>
+	
+	<h2>Creating console classes</h2>
+	the main console class is an abstract class that can be easily extended in your console class. it would also use the innput and output component of the library.
+
+	the library easily allows you to get started creating console files by running 
+	<br><br><br>
+	<code>
+		php anisify make:console filename
+	</code>
+	<br><br><br>
+	this would create a file in the folder
+	
+	<br><br><br>
+
+	<code>
+		your-system-path/console/utilities/console/Commands/systemcommands 
+	</code>
+	<br><br><br>
+
+	the file created already has the input and output classes includes.
+	There are two main functions. the configure is where you get to set the options required for your class, the argument also allows you to set argument.While the arguments are just placed in the array input of the setArgument method, the options take an associative array. The key is the name of the option while the value is either <code>required</code>  or <code>!required</code>.
+
+	<br><br>
+
+	the required option are mandated when the console command is run. by default, all arguments are required.
+
+	<br><br><br>
+
+	the setHelp and setDescription are important too as they help you know the purpose of each class.while the help are short texts , the description could be longer text
+
+	<br><br><br>
+
+	the execute function is where the entire logics of the class is placed. usually, it is advisable to link it to an external class.
+
+	<h2>Registering the console class</h2>
+	after creating the console class, it must be registered in the command array in the <code>console/utilities/console/Register/register.php </code> file. The key is the command while the value is "systemcommand\your-file-name"
+
+	<h3>console input</h3>
+	there are two main input for the console.
+	<li>options </li>
+	<li>arguments</li>
+
+	options are accessed using the getOptions method in the input class.
+
+	<br><br>
+	<code>
+		$this->input->getOptions();
+	</code>
+
+	<br><br>
+	the method returns an array of all the options passed with the option name as key . it can also take an optional argument of the exact option to return
+	
+<br><br>
+arguments are accessed using the getInputArg method
+<br><br>
+<code>
+	$this->input->getIputArg();
+</code>
+<br><br>
+it returns a numerical  array of all the arguments in the order at which they are passed.
+	</p>
+</div>
+</body>
+</html>
